@@ -1,0 +1,16 @@
+
+name: PR status checks
+on:
+  pull_request:
+    types: [assigned, opened, synchronize, reopened]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        # Checkout the head ref instead of the PR branch that github creates.
+        ref: ${{ github.head_ref }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
