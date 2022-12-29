@@ -3,23 +3,16 @@ name: Super-Linter
 on: push
 
 jobs:
-  super-lint:
-    name: Lint code base
+  trigger-a-jenkins-job:
     runs-on: ubuntu-latest
-    
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      
-      - name: trigger single Job
-        uses: appleboy/jenkins-action@master
+      - id: triggerjenkinsjob
+        uses: naveen1902/git-Actions@v1
         with:
-          url: "http://100.20.0.129:8080/"
-          user: "admin"
-          token: ${{ secrets.TOKEN }}
-      
-      - name: Super-Linter
-        uses: github/super-linter@v4.9.5
-        env:
-          DEFAULT_BRANCH: main;
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+          jenkins-server:  "${{ secrets.http://100.20.0.129:8080 }}" # URL of the jenkins server. ex: http://myjenkins.acme.com:8080
+          jenkins-job: "gitactions" # The name of the jenkins job to run
+          jenkins-username: ${{ secrets.admin }} # user name for accessing jenkins
+          jenkins-pat: ${{ secrets.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 }} # personal Access token for accessing Jenkins
+          poll-time: 10 # how often (seconds) to poll the jenkins server for results
+          timeout-value: 600 # How long (seconds) to poll before timing out the action
+          verbose: true # true/false - turns on extra logging
