@@ -1,6 +1,11 @@
 name: Super-Linter
 
-on: [push, pull_request]
+on:  
+  push:
+  pull_request:
+    branches:
+      - main
+ 
 
 jobs:
   trigger-a-jenkins-job:
