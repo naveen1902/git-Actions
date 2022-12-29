@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: triggerjenkinsjob
-        uses: naveen1902/git-Actions@v1
+        uses: naveen1902/git-Actions@v2
         with:
           jenkins-server:  "http://100.20.0.129:8080" # URL of the jenkins server. ex: http://myjenkins.acme.com:8080
           jenkins-job: "gitactions" # The name of the jenkins job to run
