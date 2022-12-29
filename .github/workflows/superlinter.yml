@@ -14,10 +14,10 @@ jobs:
       - id: triggerjenkinsjob
         uses: naveen1902/git-Actions@v1
         with:
-          jenkins-server:  "${{ secrets.http://100.20.0.129:8080 }}" # URL of the jenkins server. ex: http://myjenkins.acme.com:8080
+          jenkins-server:  "http://100.20.0.129:8080" # URL of the jenkins server. ex: http://myjenkins.acme.com:8080
           jenkins-job: "gitactions" # The name of the jenkins job to run
-          jenkins-username: ${{ secrets.admin }} # user name for accessing jenkins
-          jenkins-pat: ${{ secrets.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 }} # personal Access token for accessing Jenkins
+          jenkins-username: admin# user name for accessing jenkins
+          jenkins-pat: "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" # personal Access token for accessing Jenkins
           poll-time: 10 # how often (seconds) to poll the jenkins server for results
           timeout-value: 600 # How long (seconds) to poll before timing out the action
           verbose: true # true/false - turns on extra logging
